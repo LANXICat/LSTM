@@ -10,13 +10,13 @@ from pandas import Series
 def difference(dataset, interval=1):
 	diff = list()
 	for i in range(interval, len(dataset)):
-		value = dataset[i] - dataset[i - interval]
+		value = dataset.values[i] - dataset.values[i - interval]
 		diff.append(value)
 	return Series(diff)
 
 # 还原差分序列
 def inverse_difference(history, yhat, interval=1):
-	return yhat + history[-interval]
+	return yhat[0] + history[len(history)-interval]
 
 # 数据格式处理
 def parser(x):
@@ -30,7 +30,7 @@ print(differenced)
 # invert transform
 inverted = list()
 for i in range(len(differenced)):
-	value = inverse_difference(series, differenced[i], len(series)-i)
+	value = inverse_difference(series.values, differenced[i], len(series)-i)
 	inverted.append(value)
 
 inverted = Series(inverted)
