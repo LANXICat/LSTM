@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 
 
 def parser(x):

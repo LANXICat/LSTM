@@ -1,6 +1,6 @@
 # coding=utf-8
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from pandas import Series
 from sklearn.preprocessing import MinMaxScaler
 
@@ -10,7 +10,7 @@ def parser(x):
     return datetime.strptime(x, '%Y/%m/%d')
 
 
-series = read_csv('data_set/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True,
+series = read_csv('data_set/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,
                   date_parser=parser)
 print (series.head())
 

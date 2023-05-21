@@ -5,7 +5,7 @@ from pandas import concat
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 from matplotlib import pyplot
-from pandas import datetime
+from datetime import datetime, date, time
 
 
 def parser(x):
@@ -94,7 +94,7 @@ def plot_forcasts(series, forcasts, n_test):
     pyplot.show()
 
 
-series = read_csv('data_set/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('data_set/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,   date_parser=parser)
 
 # 一步数据，预测3步
 n_lag = 1

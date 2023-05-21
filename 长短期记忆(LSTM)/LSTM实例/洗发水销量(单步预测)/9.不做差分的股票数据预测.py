@@ -2,7 +2,7 @@
 from pandas import Series
 from pandas import concat
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
@@ -108,7 +108,7 @@ def forecast_lstm(model, batch_size, X):
 
 
 # 加载数据
-series = read_csv('stocktest.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('stocktest.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 # 最后N条数据作为测试数据
 testNum = 20
 

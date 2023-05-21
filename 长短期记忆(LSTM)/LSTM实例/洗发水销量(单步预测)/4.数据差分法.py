@@ -1,5 +1,5 @@
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from pandas import Series
 
 """
@@ -22,7 +22,7 @@ def inverse_difference(history, yhat, interval=1):
 def parser(x):
 	return datetime.strptime('190'+x, '%Y-%m')
 
-series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 print(series)
 # 差分函数，差分步长为1
 differenced = difference(series, 1)

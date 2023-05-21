@@ -1,7 +1,7 @@
 from pandas import DataFrame
 from pandas import concat
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 from matplotlib import pyplot
@@ -95,7 +95,7 @@ def plot_forecasts(series, forecasts, n_test):
 	pyplot.show()
 
 # 加载数据
-series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 # configure
 n_lag = 1
 n_seq = 3

@@ -1,7 +1,7 @@
 from pandas import DataFrame
 from pandas import concat
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 
 # 加载数据
 def parser(x):
@@ -62,7 +62,7 @@ def prepare_data(series, n_test, n_lag, n_seq):
 
 
 # 加载数据
-series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 n_lag = 1
 # 监督学习数据每一个sample的步长,这里每次预测3步,总步长为4
 n_seq = 4

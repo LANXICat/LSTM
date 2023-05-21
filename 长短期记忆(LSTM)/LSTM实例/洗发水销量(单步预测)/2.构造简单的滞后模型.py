@@ -1,5 +1,5 @@
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 from matplotlib import pyplot
@@ -10,7 +10,7 @@ from matplotlib import pyplot
 # 修改数据格式
 def parser(x):
 	return datetime.strptime('190'+x, '%Y-%m')
-series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 # 拆分训练集和测试集
 # 训练数据从0到倒数第12条，测试数据从倒数第12条到最后一条
 X = series.values

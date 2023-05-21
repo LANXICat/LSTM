@@ -1,6 +1,6 @@
 # coding=utf-8
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from pandas import Series
 
 
@@ -9,7 +9,7 @@ def parser(x):
     return datetime.strptime(x, '%Y/%m/%d')
 
 
-series = read_csv('data_set/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True,
+series = read_csv('data_set/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,
                   date_parser=parser)
 
 # 所谓的差分，就是相邻的两个数相减，求得两个数之间的差，，一两个数之间的差作为一个数组，这样的数组体现了相邻两个数的变化情况

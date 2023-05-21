@@ -2,7 +2,7 @@ from pandas import DataFrame
 from pandas import Series
 from pandas import concat
 from pandas import read_csv
-from pandas import datetime
+from datetime import datetime, date, time
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
@@ -172,7 +172,7 @@ def plot_forecasts(series, forecasts, n_test):
 	pyplot.show()
 
 # 加载数据
-series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 # 参数配置
 n_lag = 1       # 用一个数据
 n_seq = 3       # 预测三个数据
