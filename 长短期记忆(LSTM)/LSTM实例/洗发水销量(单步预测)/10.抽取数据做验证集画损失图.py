@@ -115,8 +115,8 @@ def forecast_lstm(model, batch_size, X):
 def drowPicture(History):
     pyplot.plot(History.history['loss'])
     pyplot.plot(History.history['val_loss'])
-    pyplot.plot(History.history['acc'])
-    pyplot.plot(History.history['val_acc'])
+    pyplot.plot(History.history['accuracy'])
+    pyplot.plot(History.history['val_accuracy'])
     pyplot.title('model train vs validation loss')
     pyplot.ylabel('loss')
     pyplot.xlabel('epoch')
