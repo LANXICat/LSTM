@@ -175,7 +175,7 @@ def plot_forecasts(series, forecasts, n_test):
 series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 # 参数配置
 n_lag = 1       # 用一个数据
-n_seq = 3       # 预测三个数据
+n_seq = 12       # 预测三个数据
 n_test = 10     # 测试数据为10组
 n_epochs = 1500 # 训练1500次
 n_batch = 1     # 每次训练几组数据
