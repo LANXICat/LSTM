@@ -163,23 +163,24 @@ def plot_forecasts(series, forecasts, n_test):
 	pyplot.plot(series.values)
 	# plot the forecasts in red
 	for i in range(len(forecasts)):
-		off_s = len(series) - n_test + i - 1
-		off_e = off_s + len(forecasts[i]) + 1
-		xaxis = [x for x in range(off_s, off_e)]
-		yaxis = [series.values[off_s]] + forecasts[i]
-		pyplot.plot(xaxis, yaxis, color='red')
+		if i==0:
+			off_s = len(series) - n_test + i - 1
+			off_e = off_s + len(forecasts[i]) + 1
+			xaxis = [x for x in range(off_s, off_e)]
+			yaxis = [series.values[off_s]] + forecasts[i]
+			pyplot.plot(xaxis, yaxis, color='red')
 	# show the plot
 	pyplot.show()
 
 # 加载数据
 series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  date_parser=parser)
 # 参数配置
-n_lag = 1       # 用一个数据
-n_seq = 12       # 预测三个数据
-n_test = 10     # 测试数据为10组
-n_epochs = 1500 # 训练1500次
-n_batch = 1     # 每次训练几组数据
+n_seq = 10       # 预测三个数据
+n_test = 3     # 测试数据为10组
+n_epochs = 1000 # 训练1500次
 n_neurons = 1   # 神经节点为1
+n_lag = 1      # 步长
+n_batch = 1     # 每次训练几组数据
 # 数据差分，缩放，重构成监督学习型数据
 scaler, train, test = prepare_data(series, n_test, n_lag, n_seq)
 # 拟合模型
