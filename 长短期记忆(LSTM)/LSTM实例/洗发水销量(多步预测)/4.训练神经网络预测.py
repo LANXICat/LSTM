@@ -177,8 +177,8 @@ series = read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0,  
 # 参数配置
 n_seq = 10       # 预测三个数据
 n_test = 3     # 测试数据为10组
-n_epochs = 1000 # 训练1500次
-n_neurons = 1   # 神经节点为1
+n_epochs = 1500 # 训练1500次
+n_neurons =1   # 神经节点为1
 n_lag = 1      # 步长
 n_batch = 1     # 每次训练几组数据
 # 数据差分，缩放，重构成监督学习型数据
